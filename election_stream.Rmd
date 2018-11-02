@@ -1,0 +1,57 @@
+---
+title: "Tidy Template"
+author: "Fabio Votta"
+date: "The Date"
+output: html_document
+---
+
+This script is about:
+
+
+
+## Packages and Folders
+
+```{r}
+# Install these packages if you don't have them yet
+# if (!require("pacman")) install.packages("pacman")
+# devtools::install_github("favstats/tidytemplate")
+
+pacman::p_load(tidyverse, tidytemplate, rtweet)
+
+# Creates folders
+# tidytemplate::data_dir()
+# tidytemplate::images_dir()
+```
+
+```{r}
+## autheticate via web browser
+token <- create_token(
+  app = "MyTotallyAwesomeUniqueApp",
+  consumer_key = "36CgjeAYngbLqkJqH4rt3Dwna",
+  consumer_secret = "vpyPmdTWIWDiexQvLhPvKgVmYChqu0XnJxzGCYqR60QWuypLYG")
+```
+
+
+## Load Data
+
+```{r, data}
+## stream tweets mentioning "election" for 90 seconds
+e <- stream_tweets("qanon", timeout = 60 * 20, verbose = T)
+
+e
+
+lat_lng(e)
+```
+
+
+## Analysis / Dataviz
+
+```{r, analysis}
+
+
+
+```
+
+
+
+## Conclusion
